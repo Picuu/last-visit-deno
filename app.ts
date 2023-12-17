@@ -1,5 +1,5 @@
 import { Hono } from "https://deno.land/x/hono@v3.11.8/mod.ts"
-import { serveStatic } from "https://deno.land/x/hono@v3.11.8/middleware.ts"
+import { cors, serveStatic } from "https://deno.land/x/hono@v3.11.8/middleware.ts"
 import { streamSSE } from "https://deno.land/x/hono@v3.11.8/helper/streaming/index.ts"
 
 const app = new Hono()
@@ -11,6 +11,8 @@ interface LastVisit {
     city: string,
     flag: string
 }
+
+app.use(cors())
 
 app.use('/css/*', serveStatic({ path: './public/css/style.css'}))
 app.use('/js/*', serveStatic({ path: './public/js/main.js'}))
