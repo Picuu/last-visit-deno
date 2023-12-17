@@ -111,9 +111,18 @@ p {
     margin-top: var(--flow-space, 1em);
 }
 
-
 /* --------------- MAIN --------------- */
 
+main {
+    display: grid;
+    place-content: center;
+    min-height: 100dvh;
+}
+
+small {
+    font-size: var(--fs-600);
+    text-wrap: pretty;
+}
 
 /* --------------- FOOTER --------------- */
 
