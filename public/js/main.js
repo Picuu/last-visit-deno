@@ -15,10 +15,34 @@ await fetch('/visit', {
 })
 
 const source = new EventSource('/visit')
-const $content = document.getElementById('content')
+const $last = document.getElementById("last")
+const $next = document.getElementById("next")
+let ready = true
 
 source.addEventListener('update', (event) => {
+    if (!ready) return
+
     const { city, country, flag } = JSON.parse(event.data)
-    $content.textContent = `Last visit from ${city}, ${country} ${flag}`
+    const message = `Last visit from ${city}, ${country} ${flag}`
+    const isLastEmpty = $last.textContent == ""
+
+    if (isLastEmpty) {
+        $last.textContent = message
+        return
+    }
+
+    $next.textContent = message
+    $next.style.animation = "fadeInUp 1s ease-in-out forwards"
+    $last.style.animation = "fadeOutUp 1s ease-in-out forwards"
+    ready = false
+
+    $next.onanimationend = () => {
+        $next.style.animation = ""
+        $last.style.animation = ""
+
+        $last.textContent = message
+        $next.textContent = ""
+        ready = true
+    }
 })
 
