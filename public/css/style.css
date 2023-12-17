@@ -10,36 +10,25 @@
 
 /* --------------- GENERAL STYLES --------------- */
 
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background-color: var(--clr-backgound);
-    font-family: var(--ff-base);
-    font-size: var(--fs-300);
-    line-height: 1.5;
-    color: var(--clr-body-text);
-}
-
-main {
     display: grid;
     place-content: center;
+    background-color: var(--clr-backgound);
+    min-height: 100vh;
+    padding: 0 2rem;
+  }
 
-    min-height: 100dvh;
-    padding: 2rem;
-    margin-inline: auto;
-
-    text-wrap: pretty;
+  main {
     font-size: var(--fs-600);
-}
+    color: var(--clr-body-text);
+    text-align: center;
+    font-family: var(--ff-base);
+  }
 
-span {
+  main span {
     display: block;
-    height: 25px;
-}
+    height: 45px;
+  }
 
 @keyframes fadeOutUp {
     from {
@@ -48,7 +37,7 @@ span {
     }
     to {
         opacity: 0;
-        transform: translateY(-25px);
+        transform: translateY(-45px);
     }
 }
 
@@ -59,7 +48,7 @@ span {
     }
     to {
         opacity: 1;
-        transform: translateY(-25px);
+        transform: translateY(-45px);
     }
 }
 
