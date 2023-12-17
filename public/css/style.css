@@ -28,12 +28,17 @@ main {
     display: grid;
     place-content: center;
 
-    width: min(75ch, 100% - 4rem);
     min-height: 100dvh;
+    padding: 2rem;
     margin-inline: auto;
 
     text-wrap: pretty;
     font-size: var(--fs-600);
+}
+
+span {
+    display: block;
+    height: 25px;
 }
 
 @keyframes fadeOutUp {
@@ -43,7 +48,7 @@ main {
     }
     to {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-25px);
     }
 }
 
@@ -54,7 +59,7 @@ main {
     }
     to {
         opacity: 1;
-        transform: translateY(-20px);
+        transform: translateY(-25px);
     }
 }
 
