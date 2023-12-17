@@ -46,3 +46,6 @@ source.addEventListener('update', (event) => {
     }
 })
 
+window.addEventListener('unload', (_event) => {
+    source.close()
+})
